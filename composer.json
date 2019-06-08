@@ -1,0 +1,18 @@
+{
+    "name": "fanymagnet/di",
+    "description": "My DI",
+    "type": "library",
+    "require": {
+        "psr/container": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.2"
+    },
+    "license": "GNU-3.0",
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "DI//src//": "src/"
+        }
+    }
+}
