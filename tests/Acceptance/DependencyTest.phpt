@@ -14,17 +14,17 @@ $container = new Container([
     'host' => '127.0.0.1',
     'driver' => 'mysql',
     'options' => [],
-    'dsn' => function (Container $container) {
+    'dsn' => new \DI\Loader\Service(function (Container $container) {
         return "{$container->get('driver')}:dbname={$container->get('database')};host={$container->get('host')}";
-    },
-    \DI\tests\DB::class => function (Container $container) {
+    }),
+    \DI\tests\DB::class => new \DI\Loader\Service(function (Container $container) {
         return new \DI\tests\DB(
             $container->get('dsn'),
             $container->get('username'),
             $container->get('password'),
             $container->get('options'),
         );
-    }
+    })
 ]);
 
 /* @var $db \DI\tests\DB */

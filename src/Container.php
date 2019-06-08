@@ -22,7 +22,7 @@ class Container implements ContainerInterface
             throw new NotFoundException($id);
         }
 
-        if ($this->values[$id] instanceof \Closure) {
+        if ($this->values[$id] instanceof LoaderInterface) {
             return $this->values[$id] ($this);
         }
 
