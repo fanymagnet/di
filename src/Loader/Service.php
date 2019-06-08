@@ -20,6 +20,6 @@ class Service implements LoaderInterface
 
     public function __invoke(ContainerInterface $container)
     {
-        return ($this->closure) ($container);
+        return ($this->closure)($container);
     }
 }
