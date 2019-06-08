@@ -4,17 +4,29 @@ declare(strict_types = 1);
 
 namespace DI;
 
+use DI\Exception\NotFoundException;
 use Psr\Container\ContainerInterface;
 
 class Container implements ContainerInterface
 {
+    private $values;
+
+    public function __construct(array $values)
+    {
+        $this->values = $values;
+    }
+
     public function get($id)
     {
-        // TODO: Implement get() method.
+        if ($this->has($id) === false) {
+            throw new NotFoundException($id);
+        }
+
+        return $this->values[$id];
     }
 
     public function has($id)
     {
-        // TODO: Implement has() method.
+        return array_key_exists($id, $this->values);
     }
 }
