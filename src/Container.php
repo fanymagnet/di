@@ -22,6 +22,10 @@ class Container implements ContainerInterface
             throw new NotFoundException($id);
         }
 
+        if ($this->values[$id] instanceof \Closure) {
+            return $this->values[$id] ($this);
+        }
+
         return $this->values[$id];
     }
 
