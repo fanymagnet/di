@@ -1,9 +1,0 @@
-language: php
-
-php:
-  - 7.3
-
-script:
-  - vendor/bin/phpcs
-  - vendor/bin/phpstan analyse
-  - vendor/bin/phpunit --coverage-clover=coverage.clover
