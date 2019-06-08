@@ -16,5 +16,10 @@
         "psr-4": {
             "DI\\": "src/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DI\\tests\\": "tests/"
+        }
     }
 }
